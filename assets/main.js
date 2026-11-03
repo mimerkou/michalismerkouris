@@ -53,31 +53,37 @@ if(cv){const sel=$('#sel'),cursorEl=$('#cur'),tgs=$$('[data-tg]',cv);let ti=1;
 
 /* ---------- work: projects (demo) ---------- */
 const P=[
- {t:'Theater Labs',c:'Web Design · WordPress',y:'2026',a:'a1',url:'https://theaterlabs.gr',
-  d:'Νέα ιστοσελίδα για τα θεατρικά εργαστήρια Theater Labs, με έμφαση στα τμήματα, τις παραστάσεις και την εύκολη εγγραφή.',
-  s:'<b>Λύση:</b> καθαρή δομή ανά τμήμα, έντονη τυπογραφία με θεατρικό χαρακτήρα και φόρμα ενδιαφέροντος σε κάθε σελίδα.',
+ {t:'Theater Labs',c:'Web Design · WordPress',y:'2026',img:'theaterlabs',url:'https://theaterlabs.gr',
+  pb:'Η παλιά σελίδα δεν μετέφερε τη μαγεία της σκηνής και η εγγραφή ήταν δύσκολη.',
+  me:'Design και ανάπτυξη με θεατρική ταυτότητα και καθαρή διαδρομή προς το δοκιμαστικό μάθημα.',
+  rs:'Ένα site με χαρακτήρα, όπου βρίσκεις εργαστήριο και κλείνεις μάθημα σε λίγα κλικ.',
   r:'Design & Development',tech:'WordPress · Elementor · Custom CSS'},
- {t:'Guitar Studies',c:'Redesign · UI/UX',y:'2026',a:'a2',url:'https://guitarstudies.gr',
-  d:'Redesign για δάσκαλο κιθάρας: τα μαθήματα, τα επίπεδα και η κράτηση δοκιμαστικού μαθήματος σε πρώτο πλάνο.',
-  s:'<b>Λύση:</b> ξεκάθαρη παρουσίαση μαθημάτων, mobile-first layout και CTA για επικοινωνία σε κάθε βήμα.',
+ {t:'Guitar Studies',c:'Redesign · UI/UX',y:'2026',img:'guitarstudies',url:'https://guitarstudies.gr',
+  pb:'Μαθήματα, τιμές και επικοινωνία ήταν κρυμμένα και δύσκολα να βρεθούν.',
+  me:'Redesign με παιχνιδιάρικη arcade αισθητική και όλα τα βασικά στην πρώτη οθόνη.',
+  rs:'Ένα site που ξεχωρίζει και απαντά αμέσως σε μαθητές και γονείς.',
   r:'UI/UX · Development',tech:'HTML · CSS · JS · WordPress'},
- {t:'Apergis Knitwear',c:'Redesign · Brand site',y:'2026',a:'a3',url:'#',
-  d:'Ανανέωση ιστοσελίδας για οικογενειακή βιοτεχνία πλεκτών, που αναδεικνύει την παράδοση και την ποιότητα της παραγωγής.',
-  s:'<b>Λύση:</b> ζεστή, «υφασμάτινη» αισθητική, μεγάλες εικόνες προϊόντων και η ιστορία της οικογένειας.',
-  r:'Design & Development',tech:'WordPress · Elementor'},
- {t:'Mythos Flight Training',c:'Web Design · Aviation',y:'2026',a:'a4',url:'#',
-  d:'Ιστοσελίδα για σχολή εκπαίδευσης πιλότων, με τα προγράμματα σπουδών, τον στόλο και τη διαδικασία εγγραφής.',
-  s:'<b>Λύση:</b> σαφής διαδρομή «από το πρώτο μάθημα στο δίπλωμα» και εμφανή CTA για ενημέρωση.',
+ {t:'Apergis Knitwear',c:'Redesign · Brand site',y:'2026',img:'apergis',url:'https://apergis-knitwear.netlify.app',
+  pb:'Οικογενειακή βιοτεχνία με 40+ χρόνια εμπειρίας, χωρίς σύγχρονη ψηφιακή εικόνα.',
+  me:'Ζεστή, «υφασμάτινη» αισθητική, δίγλωσσο site και σαφής παρουσίαση του φασόν.',
+  rs:'Επαγγελματική βιτρίνα που μιλά σε brands και σχεδιαστές, εντός και εκτός Ελλάδας.',
+  r:'Design & Development',tech:'HTML · CSS · JS'},
+ {t:'Mythos Flight Training',c:'Redesign · Aviation',y:'2026',img:'mfts',url:'https://mfts.gr',
+  pb:'Πολλές πληροφορίες (προγράμματα, στόλος, φόρμες) σε μια κουραστική πλοήγηση.',
+  me:'Νέο design με κινηματογραφικό hero, οργανωμένο μενού και ξεκάθαρα CTA.',
+  rs:'Μοντέρνα εικόνα σχολής που εμπνέει εμπιστοσύνη στους μελλοντικούς πιλότους.',
   r:'Design & Development',tech:'WordPress · Elementor · Custom code'},
- {t:'Genecon Energy',c:'Corporate site · Energy',y:'2026',a:'a5',url:'#',
-  d:'Εταιρική ιστοσελίδα για εταιρεία ενέργειας, με παρουσίαση υπηρεσιών, έργων και τεχνογνωσίας.',
-  s:'<b>Λύση:</b> επαγγελματική, «καθαρή» αισθητική που εμπνέει εμπιστοσύνη, με έμφαση στα έργα.',
+ {t:'Genecon Energy',c:'Web Design · Energy',y:'2026',img:'genecon',url:'#',
+  pb:'Τα φωτοβολταϊκά είναι μια σύνθετη επένδυση που ο πελάτης δυσκολεύεται να κατανοήσει.',
+  me:'Ξεκάθαρο μήνυμα, αριθμοί-κλειδιά με μια ματιά και δύο στοχευμένα CTA.',
+  rs:'Ο επισκέπτης καταλαβαίνει γρήγορα το όφελος και ζητά δωρεάν μελέτη.',
   r:'Design & Development',tech:'WordPress · Elementor'}
 ];
-const art=(p)=>`<div class="art ${p.a}"><div class="frame"><span class="tx"><b>${p.t}</b><u></u></span><s></s></div></div>`;
+const art=(p,lazy)=>`<picture class="shot"><source srcset="assets/img/work/${p.img}.webp" type="image/webp"><img src="assets/img/work/${p.img}.jpg" width="1200" height="750" alt="Στιγμιότυπο της ιστοσελίδας ${p.t}" loading="${lazy?'lazy':'eager'}" decoding="async"></picture>`;
+const caseRows=p=>`<span class="cs-r"><span class="mono">Πρόκληση</span>${p.pb}</span><span class="cs-r"><span class="mono">Η συμβολή μου</span>${p.me}</span><span class="cs-r"><span class="mono">Αποτέλεσμα</span>${p.rs}</span>`;
 const grid=$('#grid');
 if(grid) grid.innerHTML=P.map((p,i)=>`<button class="pj" data-p="${i}" aria-label="${p.t}: λεπτομέρειες">
-  <span class="pj-art">${art(p)}<span class="pill">${p.c}</span></span>
+  <span class="pj-art">${art(p,i>1)}<span class="cs" aria-hidden="true">${caseRows(p)}</span></span>
   <span class="pj-cap"><span><span class="mono">${p.c} · ${p.y}</span><h3>${p.t}</h3></span><span class="go" aria-hidden="true">${arrow}</span></span></button>`).join('');
 
 /* ---------- work: slider ---------- */
@@ -209,13 +215,15 @@ addEventListener('keydown',e=>{
 const M=$('#modal'); let mi=0,lastFocus=null;
 function fillM(){
   const p=P[mi];
-  $('#m-art').outerHTML=art(p).replace('class="art','id="m-art" class="art');
+  $('#m-art').innerHTML=art(p,false);
   $('#m-cat').textContent=p.c+' · '+p.y; $('#m-title').textContent=p.t;
-  $('#m-desc').textContent=p.d; $('#m-sol').innerHTML=p.s;
-  $('#m-kv').innerHTML=`<div><span class="mono">Ρόλος</span><b>${p.r}</b></div><div><span class="mono">Χρονιά</span><b>${p.y}</b></div><div class="full"><span class="mono">Τεχνολογίες</span><b>${p.tech}</b></div>`;
-  const l=$('#m-live'); l.href=p.url; l.style.opacity=p.url==='#'?.5:1;
+  $('#m-case').innerHTML=caseRows(p);
+  $('#m-kv').innerHTML=`<div><span class="mono">Ρόλος</span><b>${p.r}</b></div><div><span class="mono">Τεχνολογίες</span><b>${p.tech}</b></div>`;
+  const l=$('#m-live'); l.href=p.url; l.style.opacity='';
+  if(p.url==='#'){l.removeAttribute('target')}else{l.target='_blank'}
   $('#m-count').textContent=String(mi+1).padStart(2,'0')+' / '+String(P.length).padStart(2,'0');
   $('.sh-info').animate([{opacity:0,transform:'translateY(14px)'},{opacity:1,transform:'none'}],{duration:600,easing:EASE2});
+  $('#m-art').animate([{opacity:.3},{opacity:1}],{duration:500,easing:EASE2});
 }
 function openM(i){mi=i;fillM();lastFocus=document.activeElement;M.classList.add('open');modalOpen=true;setTimeout(()=>$('.ibtn.x',M).focus(),300)}
 function closeM(){M.classList.remove('open');modalOpen=false;lastFocus&&lastFocus.focus()}
@@ -224,6 +232,7 @@ if(M&&grid){
   grid.addEventListener('click',e=>{const b=e.target.closest('.pj');if(b)openM(+b.dataset.p)});
   $$('[data-close]',M).forEach(b=>b.addEventListener('click',closeM));
   $('#m-prev').onclick=()=>stepM(-1); $('#m-next').onclick=()=>stepM(1);
+  $('#m-live').addEventListener('click',e=>{if(e.currentTarget.getAttribute('href')==='#')e.preventDefault()});
 }
 
 /* ---------- contact: form (demo) ---------- */
