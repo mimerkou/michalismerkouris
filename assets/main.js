@@ -103,9 +103,9 @@ function markActive(i){
   $$('#dots a').forEach((a,j)=>a.classList.toggle('on',j===i));
   const rn=$('#rnum'); if(rn) rn.textContent=String(i+1).padStart(2,'0');
 }
-const prev=ss.get('mm-prev');
-placeInd(typeof prev==='number'&&prev!==cur?prev:cur,false);
-requestAnimationFrame(()=>requestAnimationFrame(()=>placeInd(cur,true)));
+// the slide already happened on the page we came from: start in place, no second movement
+placeInd(cur,false);
+if(document.fonts) document.fonts.ready.then(()=>placeInd(cur,false));
 addEventListener('resize',()=>placeInd(cur,false));
 mqDesk.addEventListener('change',()=>{setupMode();placeInd(cur,false)});
 
@@ -127,54 +127,28 @@ function revealPage(){
   $$('.rv',sec).forEach(el=>io.observe(el));
 }
 
-/* ---------- page transitions ---------- */
-const pt=$('.pt'), ptL=$('.pt-l'), ptP=$('.pt-p'), ptT=$('.pt-t span'), ptN=$('.pt-n span'), ptBar=$('.pt-bar i');
+/* ---------- page transitions (soft) ---------- */
 let busy=false, modalOpen=false;
-const clearPT=()=>[ptL,ptP,ptT,ptN,ptBar].forEach(el=>el.getAnimations().forEach(a=>a.cancel()));
-
 function leave(i){
   if(busy||i<0||i>=N||i===cur) return;
   busy=true;
-  const dir=i>cur?1:-1, from=`translateY(${dir*100}%)`;
-  ss.set('mm-pt',{to:i,dir,t:Date.now()}); ss.set('mm-prev',cur);
-  markActive(i); placeInd(i,true);
+  const dir=i>cur?1:-1;
+  ss.set('mm-pt',{to:i,dir,t:Date.now()});
+  placeInd(i,true);                         // pill glides to the new item
+  navBtns[cur]&&navBtns[cur].classList.remove('on'); // old icon fades back to grey as the pill leaves
+  setTimeout(()=>markActive(i),260);        // icon colours swap once the pill is under them
   try{navigator.vibrate&&navigator.vibrate(8)}catch(e){}
-  ptT.textContent=PAGES[i].t; ptN.textContent=String(i+1).padStart(2,'0')+' / '+String(N).padStart(2,'0');
-  pt.style.visibility='visible';
-  // the page itself drifts away while the curtain rises
-  inner.animate([{opacity:1,transform:'none'},{opacity:.0,transform:`translateY(${-dir*6}vh) scale(.985)`}],{duration:700,easing:EASE,fill:'forwards'});
-  ptL.animate([{transform:from},{transform:'none'}],{duration:620,easing:EASE,fill:'forwards'});
-  ptP.animate([{transform:from},{transform:'none'}],{duration:620,delay:90,easing:EASE,fill:'forwards'});
-  ptN.animate([{transform:'translateY(110%)'},{transform:'none'}],{duration:520,delay:380,easing:EASE2,fill:'both'});
-  ptT.animate([{transform:'translateY(105%)'},{transform:'none'}],{duration:620,delay:330,easing:EASE2,fill:'both'});
-  ptBar.animate([{transform:'scaleX(0)'},{transform:'scaleX(1)'}],{duration:520,delay:380,easing:EASE2,fill:'both'});
-  setTimeout(()=>{location.href=PAGES[i].file},800);
+  inner.animate([{opacity:1,transform:'none',filter:'blur(0)'},{opacity:0,transform:`translateY(${-dir*14}px)`,filter:'blur(3px)'}],
+    {duration:420,easing:'cubic-bezier(.4,0,.2,1)',fill:'forwards'});
+  setTimeout(()=>{location.href=PAGES[i].file},430);
 }
-
 function enter(){
-  const st=ss.get('mm-pt'); ss.del('mm-pt');
-  if(!root.classList.contains('pt-on')){revealPage();return}
-  const dir=st&&st.dir||1, to=`translateY(${-dir*100}%)`;
-  const go=()=>{
-    ptT.animate([{transform:'none'},{transform:'translateY(-105%)'}],{duration:520,easing:EASE,fill:'forwards'});
-    ptN.animate([{transform:'none'},{transform:'translateY(-110%)'}],{duration:460,easing:EASE,fill:'forwards'});
-    ptBar.animate([{transformOrigin:'right',transform:'scaleX(1)'},{transformOrigin:'right',transform:'scaleX(0)'}],{duration:420,easing:EASE,fill:'forwards'});
-    ptP.animate([{transform:'none'},{transform:to}],{duration:850,delay:120,easing:EASE,fill:'forwards'});
-    ptL.animate([{transform:'none'},{transform:to}],{duration:850,delay:210,easing:EASE,fill:'forwards'}).onfinish=()=>{
-      root.classList.remove('pt-on');pt.style.visibility='';clearPT()};
-    setTimeout(()=>{root.classList.remove('pt-on');revealPage()},360);
-  };
-  // give fonts a short moment so the reveal never jumps
-  Promise.race([document.fonts?document.fonts.ready:Promise.resolve(),new Promise(r=>setTimeout(r,350))]).then(()=>setTimeout(go,120));
+  const came=root.classList.contains('pt-on'); ss.del('mm-pt');
+  if(!came){revealPage();return}
+  requestAnimationFrame(()=>{root.classList.remove('pt-on');revealPage()});
 }
-// .pt stays visible while the curtain leaves, even after pt-on is removed
-const keepCurtain=()=>{pt.style.visibility='visible'};
-if(root.classList.contains('pt-on')) keepCurtain();
 enter();
-
-// back/forward cache: restore a clean page
-addEventListener('pageshow',e=>{if(e.persisted){busy=false;clearPT();pt.style.visibility='';root.classList.remove('pt-on');
-  inner.getAnimations().forEach(a=>a.cancel());markActive(cur);placeInd(cur,false)}});
+addEventListener('pageshow',e=>{if(e.persisted){busy=false;inner.getAnimations().forEach(a=>a.cancel());markActive(cur);placeInd(cur,false)}});
 
 // internal links
 document.addEventListener('click',e=>{

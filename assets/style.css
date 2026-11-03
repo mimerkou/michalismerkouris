@@ -485,9 +485,8 @@ form .btn{width:100%;justify-content:center;margin-top:4px}
 .pt-t span::after{content:".";color:var(--lime-ink)}
 .pt-bar{position:absolute;left:50%;bottom:16%;width:min(220px,40vw);height:2px;margin-left:calc(min(220px,40vw) / -2);background:var(--line2);overflow:hidden}
 .pt-bar i{position:absolute;inset:0;background:var(--lime);transform:scaleX(0);transform-origin:left}
-html.pt-on .pt{visibility:visible}
-html.pt-on .pt-l,html.pt-on .pt-p{transform:none}
-html.pt-on .pt-bar i{transform:scaleX(1)}
+@view-transition{navigation:auto}
+::view-transition-old(root),::view-transition-new(root){animation-duration:.2s}
 html.pt-on .rv{animation:none}
 
 /* v5.2: more breathing room on phones and tablets (stacked layouts) */
