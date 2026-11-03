@@ -92,7 +92,7 @@ const mqDesk=matchMedia('(min-width:900px) and (min-height:600px)');
 function placeInd(i,animate){
   const b=navBtns[i]; if(!b||!ind) return;
   const sv=b.querySelector('svg'), dr=dock.getBoundingClientRect(), r=sv.getBoundingClientRect();
-  const desk=mqDesk.matches, w=desk?48:58, h=desk?48:32;
+  const desk=mqDesk.matches, w=desk?48:38, h=desk?48:38;
   const x=r.left-dr.left+r.width/2-w/2-dock.clientLeft, y=r.top-dr.top+r.height/2-h/2-dock.clientTop;
   ind.classList.toggle('no-t',!animate);
   Object.assign(ind.style,{width:w+'px',height:h+'px',transform:`translate(${x}px,${y}px)`});

@@ -367,7 +367,7 @@ form .btn{width:100%;justify-content:center;margin-top:4px}
 @media (max-width:899px), (max-height:599px){
   .dock{left:12px;right:12px;top:auto;bottom:calc(10px + env(safe-area-inset-bottom,0px));transform:none;max-width:460px;margin:0 auto;flex-direction:row;justify-content:space-between;border-radius:22px;padding:6px;gap:0}
   .dock .sep,.dock .themeb-d{display:none}
-  .nb{flex:1;width:auto;height:58px;flex-direction:column;justify-content:center;gap:5px;border-radius:16px;transition:transform .25s var(--ease),color .35s var(--ease)}
+  .nb{flex:1;width:auto;height:60px;flex-direction:column;justify-content:center;gap:8px;border-radius:16px;transition:transform .25s var(--ease),color .35s var(--ease)}
   .nb svg{margin:0;width:21px;height:21px}
   .nb .lbl{display:none}
   .nb .ml{display:block}
@@ -459,7 +459,7 @@ form .btn{width:100%;justify-content:center;margin-top:4px}
   box-shadow:0 8px 24px -8px color-mix(in srgb,var(--lime) 70%,transparent);
   transition:transform .65s var(--ease),width .5s var(--ease),height .5s var(--ease),border-radius .5s var(--ease)}
 .ind.no-t{transition:none}
-@media (max-width:899px), (max-height:599px){ .ind{border-radius:99px} .nb .ml{display:block} }
+@media (max-width:899px), (max-height:599px){ .ind{border-radius:50%} .nb .ml{display:block} }
 .nb{-webkit-tap-highlight-color:transparent}
 
 /* footer: bottom of the contact page */
