@@ -457,7 +457,7 @@ form .btn{width:100%;justify-content:center;margin-top:4px}
 .nb.on .ml{color:var(--text);font-weight:700}
 .ind{position:absolute;left:0;top:0;width:48px;height:48px;border-radius:14px;background:var(--lime);z-index:1;pointer-events:none;
   box-shadow:0 8px 24px -8px color-mix(in srgb,var(--lime) 70%,transparent);
-  transition:left .65s var(--ease),top .65s var(--ease),width .5s var(--ease),height .5s var(--ease),border-radius .5s var(--ease)}
+  transition:left .42s var(--ease),top .42s var(--ease),width .5s var(--ease),height .5s var(--ease),border-radius .5s var(--ease)}
 /* first paint: the marker already sits under the current page's item (no jump from Home) */
 .dock .ind{left:8px;top:calc(8px + var(--pi,0) * 54px)}
 .ind.no-t{transition:none}
@@ -487,10 +487,18 @@ form .btn{width:100%;justify-content:center;margin-top:4px}
 .pt-t span::after{content:".";color:var(--lime-ink)}
 .pt-bar{position:absolute;left:50%;bottom:16%;width:min(220px,40vw);height:2px;margin-left:calc(min(220px,40vw) / -2);background:var(--line2);overflow:hidden}
 .pt-bar i{position:absolute;inset:0;background:var(--lime);transform:scaleX(0);transform-origin:left}
-@view-transition{navigation:auto}
-::view-transition-old(root),::view-transition-new(root){animation-duration:.2s}
 html.pt-on .rv{animation:none}
 
+/* v5.5 */
+a,button{-webkit-tap-highlight-color:transparent}
+.dock.nav-go .nb .lbl{clip-path:inset(0 calc(100% - 48px) 0 0 round 14px)!important;opacity:0!important}
+.nb .lbl{transition:clip-path .55s var(--ease),opacity .3s var(--ease),background-color .35s var(--ease),color .35s var(--ease),border-color .35s var(--ease)}
+@media (max-width:899px), (max-height:599px){
+  .sh-body{display:block}
+  .sh-art{aspect-ratio:16/10;min-height:0}
+  .modal .scrim{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(5,6,8,.78)}
+  .sheet{transform:translateY(40px);transition:transform .55s var(--ease),opacity .4s var(--ease)}
+}
 /* v5.2: more breathing room on phones and tablets (stacked layouts) */
 @media (max-width:899px), (max-height:599px){
   .pg-in{padding:124px max(24px, env(safe-area-inset-right,0px)) calc(112px + env(safe-area-inset-bottom,0px)) max(24px, env(safe-area-inset-left,0px))}

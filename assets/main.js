@@ -134,13 +134,14 @@ function leave(i){
   busy=true;
   const dir=i>cur?1:-1;
   ss.set('mm-pt',{to:i,dir,t:Date.now()});
+  dock.classList.add('nav-go');             // fold any open hover label so nothing pops on the next page
   placeInd(i,true);                         // pill glides to the new item
   navBtns[cur]&&navBtns[cur].classList.remove('on'); // old icon fades back to grey as the pill leaves
-  setTimeout(()=>markActive(i),260);        // icon colours swap once the pill is under them
+  setTimeout(()=>markActive(i),190);        // icon colours swap once the pill is under them
   try{navigator.vibrate&&navigator.vibrate(8)}catch(e){}
   inner.animate([{opacity:1,transform:'none',filter:'blur(0)'},{opacity:0,transform:`translateY(${-dir*14}px)`,filter:'blur(3px)'}],
     {duration:420,easing:'cubic-bezier(.4,0,.2,1)',fill:'forwards'});
-  setTimeout(()=>{location.href=PAGES[i].file},430);
+  setTimeout(()=>{location.href=PAGES[i].file},470);
 }
 function enter(){
   const came=root.classList.contains('pt-on'); ss.del('mm-pt');
@@ -148,7 +149,7 @@ function enter(){
   requestAnimationFrame(()=>{root.classList.remove('pt-on');revealPage()});
 }
 enter();
-addEventListener('pageshow',e=>{if(e.persisted){busy=false;inner.getAnimations().forEach(a=>a.cancel());markActive(cur);placeInd(cur,false)}});
+addEventListener('pageshow',e=>{if(e.persisted){busy=false;dock.classList.remove('nav-go');inner.getAnimations().forEach(a=>a.cancel());markActive(cur);placeInd(cur,false)}});
 
 // internal links
 document.addEventListener('click',e=>{
