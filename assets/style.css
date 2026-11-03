@@ -367,7 +367,7 @@ form .btn{width:100%;justify-content:center;margin-top:4px}
 @media (max-width:899px), (max-height:599px){
   .dock{left:12px;right:12px;top:auto;bottom:calc(10px + env(safe-area-inset-bottom,0px));transform:none;max-width:460px;margin:0 auto;flex-direction:row;justify-content:space-between;border-radius:22px;padding:6px;gap:0}
   .dock .sep,.dock .themeb-d{display:none}
-  .nb{flex:1;width:auto;height:60px;flex-direction:column;justify-content:center;gap:8px;border-radius:16px;transition:transform .25s var(--ease),color .35s var(--ease)}
+  .nb{flex:1;width:auto;height:66px;flex-direction:column;justify-content:center;gap:12px;border-radius:16px;transition:transform .25s var(--ease),color .35s var(--ease)}
   .nb svg{margin:0;width:21px;height:21px}
   .nb .lbl{display:none}
   .nb .ml{display:block}
@@ -489,3 +489,26 @@ html.pt-on .pt{visibility:visible}
 html.pt-on .pt-l,html.pt-on .pt-p{transform:none}
 html.pt-on .pt-bar i{transform:scaleX(1)}
 html.pt-on .rv{animation:none}
+
+/* v5.2: more breathing room on phones and tablets (stacked layouts) */
+@media (max-width:899px), (max-height:599px){
+  .pg-in{padding:124px max(24px, env(safe-area-inset-right,0px)) calc(112px + env(safe-area-inset-bottom,0px)) max(24px, env(safe-area-inset-left,0px))}
+  .hero{gap:84px}
+  .about,.serv,.contact{gap:64px}
+  .hero .lead{margin-bottom:34px}
+  .ctas{gap:14px}
+  .avail{margin-bottom:30px}
+  .eyebrow{margin-bottom:18px}
+  .about .h2,.serv .h2,.contact .h2{margin-bottom:22px}
+  .about p{margin-bottom:18px}
+  .about .tags{margin-top:30px}
+  .steps{margin-top:34px}
+  .step{padding:16px 0}
+  .scards{gap:16px}
+  .sc{padding:26px 24px 24px}
+  .workhead{margin-bottom:30px}
+  .grid{gap:18px}
+  .qa{margin-top:34px;gap:12px}
+  form{padding:26px 22px}
+  .site-foot{margin-top:56px}
+}
