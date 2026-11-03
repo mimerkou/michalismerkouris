@@ -43,10 +43,20 @@
 <section class="pg on is-cur" id="work" aria-labelledby="h-work">
   <div class="pg-in"><div class="wrap">
     <div class="workhead">
-      <div><span class="eyebrow mono rv">04 — Έργα</span><h1 id="h-work" class="h2 rv">Επιλεγμένα <em>projects.</em></h1></div>
-      <p class="lead rv">Λίγα, προσεγμένα έργα. Πατήστε σε κάποιο για να δείτε λεπτομέρειες και το live site.</p>
+      <div><span class="eyebrow mono rv">04 • Έργα</span><h1 id="h-work" class="h2 rv">Επιλεγμένα <em>projects.</em></h1></div>
+      <p class="lead rv">Λίγα, προσεγμένα έργα. Πατήστε σε κάποιο για λεπτομέρειες και το live site.</p>
     </div>
-    <div class="grid" id="grid"></div>
+    <div class="slider rv" id="slider">
+      <div class="sl-track" id="grid" tabindex="0" aria-label="Έργα — σύρετε ή χρησιμοποιήστε τα βελάκια"></div>
+      <div class="sl-ctrl">
+        <span class="sl-count mono"><b id="sl-cur">01</b> / <span id="sl-tot">06</span></span>
+        <span class="sl-bar" aria-hidden="true"><i id="sl-fill"></i></span>
+        <div class="sl-btns">
+          <button class="sl-btn" id="sl-prev" aria-label="Προηγούμενο έργο"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+          <button class="sl-btn" id="sl-next" aria-label="Επόμενο έργο"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </div>
+      </div>
+    </div>
   </div></div>
 </section>
 </main>
@@ -70,7 +80,6 @@
         <p id="m-sol"></p>
         <div class="kv" id="m-kv"></div>
         <div class="ctas"><a class="btn pri" id="m-live" target="_blank" rel="noopener">Δείτε το live site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
-        <span class="demo-note">* Demo περιεχόμενο — τα τελικά κείμενα και screenshots θα μπουν στη συνέχεια.</span>
       </div>
     </div>
   </div>
